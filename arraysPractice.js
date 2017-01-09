@@ -232,7 +232,13 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-
+  function longer(arr1,arr2) {
+    console.log (arr1, arr2);
+    if (arr1.length > arr2.length) {
+      return arr1;
+    }
+    return arr2;
+  }
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example).
@@ -241,7 +247,17 @@ for(var i = 0; i < num2; i++){
 */
 
   //Code Here
-
+  function both(arr1, arr2) {
+    var bothArr = [];
+    for (var i=0; i<arr1.length; i++) {
+      for (var ii=0; ii<arr2.length; ii++) {
+        if (arr1[i] === arr2[ii]) {
+          bothArr.push(arr1[i]);
+        }
+      }
+    }
+    return bothArr;
+  }
 
 
 
@@ -281,12 +297,26 @@ array with those four objects. After that console.log the length of the Array an
 sure that it's equal to 4. */
 
   //Code Here
-
+  devMountainEmployees = [tyler,cahlan,ryan,colt];
+  console.log(devMountainEmployees.length);
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
+  function removeEmp(empList,emp) {
+    for (var i=0; i<empList.length; i++){
+      var name=empList[i].name;
+      console.log(i,name,emp);
+      if (name.toLowerCase() === emp) {
+        console.log("match",name,empList);
+        empList.splice(i,1);
+        return empList;
+      }
+    }
+    return empList;
+  }
 
+  removeEmp(devMountainEmployees,'cahlan');
 
 
 
@@ -328,7 +358,7 @@ of Data is to have an Array full of objects. */
 //Create an empty array called users.
 
   //Code Here
-
+var users = [];
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
 
@@ -341,7 +371,19 @@ var user1 = {
 };
 
 //Your Code Here
-
+var user2 = {
+    name: 'Julie McGinnis',
+    email: 'juliemcginnis33@gmail.com',
+    password: 'iLoveJavaScript',
+    username: 'infiniateLoop'
+};
+var user3 = {
+    name: 'Mary McGinnis',
+    email: 'marymcginnis33@gmail.com',
+    password: 'iLoveJavaScript',
+    username: 'infiniateLoop'
+};
+users = [user1,user2,user3];
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
 and those objects contain properties about the specific person you follow.*/
@@ -351,5 +393,15 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
+  function removeUser(users,email) {
+    for (var i=0; i<users.length; i++) {
+      var removeEmail = users[i].email;
+      if (removeEmail === email) {
+        users.splice(i,1);
+      }
+    }
 
+    return users;
+  }
+  removeUser(users,'tylermcginnis33@gmail.com')
 //The activity we just did is very much how data works in 'the real world'.
