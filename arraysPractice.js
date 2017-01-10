@@ -156,16 +156,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   //Code Here
   function removeItem(list,item) {
     if(!list){
-      return [];
+        return [];
     }
-       for (var i=0; i<list.length; i++) {
-         if(list[i]===item) {
-           list.splice(i,1);
-           i--;
-         }
-       }
-     return list;
-   }
+    var newList = list.filter(function(food){
+      return food!==item;
+      })
+  return newList;
+  }
 
    function addItem(list,item) {
      if(!list) {
@@ -214,10 +211,10 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   //Code Here
 
   function addTen(numbers) {
-    for (var i=0; i<numbers.length; i++) {
-      numbers[i] = parseInt(numbers[i]) + 10;
-    }
-    return numbers;
+    var numberArr = numbers.map(function(num){
+      return parseInt(num) + 10;
+      });
+  return numberArr;
   }
 
 //Next Problem
